@@ -1,0 +1,28 @@
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+
+    <session-factory>
+
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/LearningHibernate</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">HopeWasALie</property>
+
+        <property name="hibernate.hbm2ddl.auto">update</property> <!-- it will create a table and if a table exists then it will drop that table and will create a new table everytime-->
+<!--       And hbm2ddl stands for hibernate map to data definition language -->
+<!--        <property name="hibernate.hbm2ddl.auto">update</property> &lt;!&ndash; if table doesn't exist it will create it and if it does exist it will use it but it will not remove the old colms&ndash;&gt;-->
+
+        <property name="hibernate.show_sql">true</property> <!-- used to see the sql query -->
+<!--        <property name="hibernate.format_sql">true</property> &lt;!&ndash; used to see the proper format sql query &ndash;&gt;-->
+        
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property> <!-- not necessary needed used to let them know i'm using Postgre or something like that just use it if there's some error related to Dialect -->
+        <!-- hibernate.dialect tells Hibernate which database SQL language (dialect) to use so it can generate correct SQL queries for that database. -->
+
+        
+<!--        Properties for cache L2 (Not nesseccery need to mention them but if not working do it)-->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.internal.JCacheRegionFactory</property>
+        <property name="hibernate.jakarta.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
+
+    </session-factory>
+
+</hibernate-configuration>
